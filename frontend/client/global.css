@@ -1,0 +1,141 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * CoderVerse Dark Gaming Theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   */
+  :root {
+    /* Dark theme as default for gaming platform */
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 271 81% 56%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 5% 26%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 197 71% 73%;
+    --accent-foreground: 240 10% 4%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 6% 20%;
+    --input: 240 6% 20%;
+    --ring: 271 81% 56%;
+
+    --radius: 0.75rem;
+
+    /* Gaming-specific colors */
+    --gaming-dark: 240 10% 4%;
+    --gaming-darker: 240 15% 2%;
+    --gaming-card: 240 10% 6%;
+    --gaming-border: 240 6% 20%;
+
+    /* Neon accent colors */
+    --neon-purple: 271 81% 56%;
+    --neon-cyan: 197 71% 73%;
+    --neon-pink: 320 76% 70%;
+    --neon-green: 127 100% 72%;
+
+    /* Sidebar (keeping existing structure) */
+    --sidebar-background: 240 10% 4%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 271 81% 56%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4% 16%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 6% 20%;
+    --sidebar-ring: 271 81% 56%;
+  }
+
+  .light {
+    /* Light theme overrides (if needed) */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 4%;
+    --primary: 271 81% 56%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 10% 4%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+    --accent: 197 71% 73%;
+    --accent-foreground: 240 10% 4%;
+    --border: 240 6% 88%;
+    --input: 240 6% 88%;
+    --ring: 271 81% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gaming-dark;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neon-purple/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neon-purple/50;
+  }
+}
+
+@layer components {
+  /* Gradient button component */
+  .btn-gradient {
+    @apply bg-gradient-to-r from-neon-cyan to-neon-purple text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-neon-purple/25;
+  }
+
+  /* Neon glow effect */
+  .neon-glow {
+    @apply drop-shadow-[0_0_15px_rgba(168,85,247,0.5)];
+  }
+
+  /* Gaming card style */
+  .gaming-card {
+    @apply bg-gaming-card border border-gaming-border rounded-xl p-6 transition-all duration-300 hover:border-neon-purple/50 hover:shadow-lg hover:shadow-neon-purple/10;
+  }
+
+  /* Code text styling */
+  .code-text {
+    @apply font-mono text-sm bg-gaming-darker border border-gaming-border rounded-lg p-4;
+  }
+}
